@@ -1,35 +1,22 @@
-<!-- Form favorite start -->
 <form action="/create_favorite_from_recipe" method="post">
-<!-- Form favorite end -->
 
-  <!-- Label and input for recipes_id start -->
-  <!-- Input for recipes_id start -->
   <input type="hidden" name="recipes_id" value="<%= @recipe.id %>">
-  <!-- Input for recipes_id end -->
 
-  <!-- Label and input for user_id start -->
   <div class="form-group">
     <label for="user_id">
       User
     </label>
 
-    <!-- Input for user_id start -->
     <%= select_tag(:user_id, options_from_collection_for_select(User.all, :id, :email, @favorite.user_id), :class => "form-control") %>
-    <!-- Input for user_id end -->
   </div>
-  <!-- Label and input for user_id end -->
 
-  <!-- Label and input for cuisine_id start -->
   <div class="form-group">
     <label for="cuisine_id">
       Cuisine
     </label>
 
-    <!-- Input for cuisine_id start -->
     <%= select_tag(:cuisine_id, options_from_collection_for_select(Cuisine.all, :id, :cuisine, @favorite.cuisine_id), :class => "form-control") %>
-    <!-- Input for cuisine_id end -->
   </div>
-  <!-- Label and input for cuisine_id end -->
 
   <button class="btn btn-block btn-outline-secondary">
     Create favorite

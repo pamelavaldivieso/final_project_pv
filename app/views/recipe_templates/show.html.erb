@@ -11,7 +11,6 @@
         </a>
       </div>
 
-      <!-- Edit link recipe start -->
       <div class="col">
         <% if current_user == @recipe.user %>
           <a href="/recipes/<%= @recipe.id %>/edit" class="btn btn-block btn-sm btn-outline-secondary">
@@ -19,9 +18,7 @@
           </a>
         <% end %>
       </div>
-      <!-- Edit link recipe end -->
 
-      <!-- Delete link recipe start -->
       <div class="col">
         <% if current_user == @recipe.user %>
           <a href="/delete_recipe/<%= @recipe.id %>" class="btn btn-block btn-sm btn-outline-secondary">
@@ -29,14 +26,12 @@
           </a>
         <% end %>
       </div>
-      <!-- Delete link recipe end -->
     </div>
 
     <dl>
       <dt>
         User
       </dt>
-      <!-- Display user_id start -->
       <dd>
         <% if @recipe.user.present? %>
           <a href="/users/<%= @recipe.user_id %>">
@@ -44,12 +39,10 @@
           </a>
         <% end %>
       </dd>
-      <!-- Display user_id end -->
 
       <dt>
         Cuisine
       </dt>
-      <!-- Display cuisine_id start -->
       <dd>
         <% if @recipe.cuisine.present? %>
           <a href="/cuisines/<%= @recipe.cuisine_id %>">
@@ -57,78 +50,61 @@
           </a>
         <% end %>
       </dd>
-      <!-- Display cuisine_id end -->
 
       <dt>
         Ingredients
       </dt>
-      <!-- Display ingredients start -->
       <dd>
         <%= @recipe.ingredients %>
       </dd>
-      <!-- Display ingredients end -->
 
       <dt>
         Directions
       </dt>
-      <!-- Display directions start -->
       <dd>
         <%= @recipe.directions %>
       </dd>
-      <!-- Display directions end -->
 
       <dt>
         Country origin
       </dt>
-      <!-- Display country_origin start -->
       <dd>
         <%= @recipe.country_origin %>
       </dd>
-      <!-- Display country_origin end -->
 
       <dt>
         Name
       </dt>
-      <!-- Display name start -->
       <dd>
         <%= @recipe.name %>
       </dd>
-      <!-- Display name end -->
 
       <dt>
         Photo
       </dt>
-      <!-- Display photo start -->
       <dd>
         <%= @recipe.photo %>
       </dd>
-      <!-- Display photo end -->
 
       <dt>
         Created at
       </dt>
-      <!-- Display created_at start -->
       <dd>
         <%= time_ago_in_words(@recipe.created_at) %> ago
       </dd>
-      <!-- Display created_at end -->
 
       <dt>
         Updated at
       </dt>
-      <!-- Display updated_at start -->
       <dd>
         <%= time_ago_in_words(@recipe.updated_at) %> ago
       </dd>
-      <!-- Display updated_at end -->
     </dl>
   </div>
 </div>
 
-<!-- Show Page Customization starts -->
 <div class="row mb-3">
   <div class="col-md-8 offset-md-2">
     <%= render partial: "recipe_templates/recipe_favorites" %>
   </div>
 </div>
-<!-- Show Page Customization end -->
