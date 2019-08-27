@@ -1,6 +1,9 @@
 class Favorite < ApplicationRecord
   # Direct associations
 
+  belongs_to :recipes,
+             :class_name => "Recipe"
+
   belongs_to :user
 
   # Indirect associations
