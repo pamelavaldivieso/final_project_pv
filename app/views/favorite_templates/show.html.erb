@@ -34,7 +34,11 @@
       </dt>
       <!-- Display recipes_id start -->
       <dd>
-        <%= @favorite.recipes_id %>
+        <% if @favorite.recipes.present? %>
+          <a href="/recipes/<%= @favorite.recipes_id %>">
+            <%= @favorite.recipes.user_id %>
+          </a>
+        <% end %>
       </dd>
       <!-- Display recipes_id end -->
 
@@ -43,7 +47,11 @@
       </dt>
       <!-- Display user_id start -->
       <dd>
-        <%= @favorite.user_id %>
+        <% if @favorite.user.present? %>
+          <a href="/users/<%= @favorite.user_id %>">
+            <%= @favorite.user.email %>
+          </a>
+        <% end %>
       </dd>
       <!-- Display user_id end -->
 
@@ -52,7 +60,11 @@
       </dt>
       <!-- Display cuisine_id start -->
       <dd>
-        <%= @favorite.cuisine_id %>
+        <% if @favorite.cuisine.present? %>
+          <a href="/cuisines/<%= @favorite.cuisine_id %>">
+            <%= @favorite.cuisine.cuisine %>
+          </a>
+        <% end %>
       </dd>
       <!-- Display cuisine_id end -->
 

@@ -38,7 +38,11 @@
       </dt>
       <!-- Display user_id start -->
       <dd>
-        <%= @recipe.user_id %>
+        <% if @recipe.user.present? %>
+          <a href="/users/<%= @recipe.user_id %>">
+            <%= @recipe.user.email %>
+          </a>
+        <% end %>
       </dd>
       <!-- Display user_id end -->
 
@@ -47,7 +51,11 @@
       </dt>
       <!-- Display cuisine_id start -->
       <dd>
-        <%= @recipe.cuisine_id %>
+        <% if @recipe.cuisine.present? %>
+          <a href="/cuisines/<%= @recipe.cuisine_id %>">
+            <%= @recipe.cuisine.cuisine %>
+          </a>
+        <% end %>
       </dd>
       <!-- Display cuisine_id end -->
 
