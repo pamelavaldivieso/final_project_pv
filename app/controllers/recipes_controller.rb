@@ -6,6 +6,7 @@ class RecipesController < ApplicationController
   end
 
   def show
+    @favorite = Favorite.new
     @recipe = Recipe.find(params.fetch("id_to_display"))
 
     render("recipe_templates/show.html.erb")
@@ -32,6 +33,26 @@ class RecipesController < ApplicationController
       @recipe.save
 
       redirect_back(:fallback_location => "/recipes", :notice => "Recipe created successfully.")
+    else
+      render("recipe_templates/new_form_with_errors.html.erb")
+    end
+  end
+
+  def create_row_from_cuisine
+    @recipe = Recipe.new
+
+    @recipe.user_id = params.fetch("user_id")
+    @recipe.cuisine_id = params.fetch("cuisine_id")
+    @recipe.ingredients = params.fetch("ingredients")
+    @recipe.directions = params.fetch("directions")
+    @recipe.country_origin = params.fetch("country_origin")
+    @recipe.name = params.fetch("name")
+    @recipe.photo = params.fetch("photo")
+
+    if @recipe.valid?
+      @recipe.save
+
+      redirect_to("/cuisines/#{@recipe.cuisine_id}", notice: "Recipe created successfully.")
     else
       render("recipe_templates/new_form_with_errors.html.erb")
     end

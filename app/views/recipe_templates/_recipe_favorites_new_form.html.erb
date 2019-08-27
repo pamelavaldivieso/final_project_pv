@@ -1,0 +1,37 @@
+<!-- Form favorite start -->
+<form action="/create_favorite_from_recipe" method="post">
+<!-- Form favorite end -->
+
+  <!-- Label and input for recipes_id start -->
+  <!-- Input for recipes_id start -->
+  <input type="hidden" name="recipes_id" value="<%= @recipe.id %>">
+  <!-- Input for recipes_id end -->
+
+  <!-- Label and input for user_id start -->
+  <div class="form-group">
+    <label for="user_id">
+      User
+    </label>
+
+    <!-- Input for user_id start -->
+    <input type="text" id="user_id" name="user_id" class="form-control" value="<%= @favorite.user_id %>">
+    <!-- Input for user_id end -->
+  </div>
+  <!-- Label and input for user_id end -->
+
+  <!-- Label and input for cuisine_id start -->
+  <div class="form-group">
+    <label for="cuisine_id">
+      Cuisine
+    </label>
+
+    <!-- Input for cuisine_id start -->
+    <input type="text" id="cuisine_id" name="cuisine_id" class="form-control" value="<%= @favorite.cuisine_id %>">
+    <!-- Input for cuisine_id end -->
+  </div>
+  <!-- Label and input for cuisine_id end -->
+
+  <button class="btn btn-block btn-outline-secondary">
+    Create favorite
+  </button>
+</form>
