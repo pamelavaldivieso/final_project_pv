@@ -27,7 +27,7 @@
     </label>
 
     <!-- Input for recipes_id start -->
-    <input type="text" id="recipes_id" name="recipes_id" class="form-control" value="<%= @favorite.recipes_id %>">
+    <%= select_tag(:recipes_id, options_from_collection_for_select(Recipe.all, :id, :user_id, @favorite.recipes_id), :class => "form-control") %>
     <!-- Input for recipes_id end -->
   </div>
   <!-- Label and input for recipes_id end -->
