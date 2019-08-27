@@ -67,7 +67,7 @@ class RecipesController < ApplicationController
   def update_row
     @recipe = Recipe.find(params.fetch("id_to_modify"))
 
-    @recipe.user_id = params.fetch("user_id")
+    
     @recipe.cuisine_id = params.fetch("cuisine_id")
     @recipe.ingredients = params.fetch("ingredients")
     @recipe.directions = params.fetch("directions")
